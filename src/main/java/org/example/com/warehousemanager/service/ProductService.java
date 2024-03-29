@@ -60,10 +60,5 @@ public class ProductService {
         productRepository.delete(product);
     }
 
-    //    @Override
-    public Product findProductByArticle(String article) {
-        return productRepository.findByArticle(article).orElseThrow(() -> new NotFoundException(Product.class, "article", article));
-    }
-
 
 }

@@ -8,10 +8,13 @@ import org.example.com.warehousemanager.model.Product;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
 public class ProductResponse {
+    private UUID id;
+
     private String name;
 
     private String article;
@@ -29,6 +32,7 @@ public class ProductResponse {
     private String category;
 
     public ProductResponse(Product product) {
+        this.id = product.getId();
         this.name = product.getName();
         this.article = product.getArticle();
         this.description = product.getDescription();

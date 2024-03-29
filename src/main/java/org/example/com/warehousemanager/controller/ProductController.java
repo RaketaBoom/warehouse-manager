@@ -1,12 +1,10 @@
 package org.example.com.warehousemanager.controller;
 
-import jakarta.annotation.Nullable;
 import lombok.RequiredArgsConstructor;
 import org.example.com.warehousemanager.model.Product;
 import org.example.com.warehousemanager.model.dto.ProductRequest;
 import org.example.com.warehousemanager.model.dto.ProductResponse;
 import org.example.com.warehousemanager.service.ProductService;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -27,12 +25,6 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(allProducts);
     }
 
-
-    @GetMapping
-    public ResponseEntity<ProductResponse> getProductByArticle(@Param("article") @Nullable String article) {
-        Product product = productService.findProductByArticle(article);
-        return ResponseEntity.status(HttpStatus.OK).body(new ProductResponse(product));
-    }
 
     @PostMapping
     public ResponseEntity<ProductResponse> createProduct(@RequestBody @Validated ProductRequest productRequest) {
