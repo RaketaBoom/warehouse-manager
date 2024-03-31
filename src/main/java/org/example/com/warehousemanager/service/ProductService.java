@@ -44,7 +44,6 @@ public class ProductService {
     }
 
     public Product updateProduct(ProductRequest productRequest, UUID id) {
-        // Maybe should write exception with article
         Product product = findProduct(id);
         product.setName(productRequest.getName());
         product.setArticle(productRequest.getArticle());
@@ -58,11 +57,6 @@ public class ProductService {
     public void deleteProduct(UUID id) {
         Product product = findProduct(id);
         productRepository.delete(product);
-    }
-
-    //    @Override
-    public Product findProductByArticle(String article) {
-        return productRepository.findByArticle(article).orElseThrow(() -> new NotFoundException(Product.class, "article", article));
     }
 
 

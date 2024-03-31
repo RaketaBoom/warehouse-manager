@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name="products")
+@Table(name="product")
 @Getter
 @Setter
 @Builder
@@ -20,13 +20,13 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String article;
 
-    @Column
+    @Column(nullable = false)
     private String description;
 
     @Column
