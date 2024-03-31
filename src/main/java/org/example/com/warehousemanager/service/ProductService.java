@@ -44,7 +44,6 @@ public class ProductService {
     }
 
     public Product updateProduct(ProductRequest productRequest, UUID id) {
-        // Maybe should write exception with article
         Product product = findProduct(id);
         product.setName(productRequest.getName());
         product.setArticle(productRequest.getArticle());
